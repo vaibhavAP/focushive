@@ -118,6 +118,30 @@ a:active,
 .tg-blogpostvseven .tg-postcontent .tg-posttitle:after,
 .tg-btn:hover:before{ background:#ea205a; }
 /*=============================================
+			Zain's Custom Code
+=============================================*/
+
+.red-hive a:hover:before, li.red-hive a:before {
+	background: red !important;
+}
+.orange-hive a:hover:before, li.orange-hive a:before {
+	background: orange !important;
+}
+.yellow-hive a:hover:before, li.yellow-hive a:before {
+	background: yellow !important;
+}
+.green-hive a:hover:before, li.green-hive a:before {
+	background: green !important;
+}
+.blue-hive a:hover:before, li.blue-hive a:before {
+	background: blue !important;
+}
+.violet-hive a:hover:before, li.violet-hive a:before {
+	background: violet !important;
+}
+
+
+/*=============================================
 			Theme Border Color
 =============================================*/
 input:focus,
