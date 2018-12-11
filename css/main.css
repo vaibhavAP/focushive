@@ -1302,6 +1302,7 @@ li.menu-item-has-children:hover > .mega-menu{
 	color: #fff;
 	display: block;
 	font-size: 20px;
+	font-size: 13px;
 	line-height: 27px;
 	position: relative;
 	padding: 21px 0 20px;
@@ -4263,7 +4264,7 @@ li.menu-item-has-children:hover > .mega-menu{
 	-o-transform: translateY(0);
 	transform: translateY(0);
 }
-.tg-bgaboutus{background: url('../images/showcase.jpg') no-repeat 100% 80px;}
+.tg-bgaboutus{background: #000 url('../images/parallax/aboutus.jpg') no-repeat 100% 0px;}
 .tg-aboutus{
 	width: 100%;
 	float: left;
