@@ -104,7 +104,7 @@
 					Home Slider Start
 			*************************************-->
 			<div id="tg-innerbanner" class="tg-innerbanner tg-innerbannervfour">
-				<figure data-vide-bg="poster: images/innerpagebanner/img-09.jpg" data-vide-options="position: 0% 50%">
+				<figure data-vide-bg="poster: images/innerpagebanner/desk.jpg" data-vide-options="position: 0% 50%">
 					<figcaption>
 						<div class="container">
 							<div class="row">
@@ -174,13 +174,20 @@
 											<div class="tg-title tg-titlevone">
 												<h3><span>Let’s work together</span>Start your Project</h3>
 											</div>
-											<form class="tg-formtheme tg-formstartproject">
+										
+											
+
+											<form method="POST" class="tg-formtheme tg-formstartproject" action="https://formspree.io/info@thefocushive.com">
+													
+													<input type="text" name="_gotcha" style="display:none">
+													<input type="hidden" name="_subject" value="Inquiry: Focus Hive">
+													<input type="hidden" name="_next" value="https://thefocushive.com/thanks.html">
 												<fieldset>
 													<div class="form-group">
-														<input type="text" name="username" class="form-control" placeholder="Your Name">
+														<input type="text" name="name" class="form-control" placeholder="Your Name">
 													</div>
 													<div class="form-group">
-														<input type="email" name="usermail" class="form-control" placeholder="Email Address">
+														<input type="email" name="_replyto" class="form-control" placeholder="Email Address">
 													</div>
 													<div class="form-group">
 														<input type="text" name="phone" class="form-control" placeholder="Phone">
@@ -198,10 +205,10 @@
 														</span>
 													</div>
 													<div class="form-group">
-														<textarea placeholder="Message"></textarea>
+														<textarea name="message" placeholder="Message"></textarea>
 													</div>
 													<div class="form-group">
-														<button class="tg-btn" type="submit"><span>send message</span></button>
+														<button class="tg-btn" type="submit" value="Send"><span>send message</span></button>
 													</div>
 												</fieldset>
 											</form>
