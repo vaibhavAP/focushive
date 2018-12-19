@@ -1,6 +1,6 @@
 /********************************************
  * REVOLUTION 5.0+ EXTENSION - WHITEBOARD
- * @version: 1.0.2 (16.03.2016)
+ * @version: 1.0.2 (16.03.2018)
  * @requires jquery.themepunch.revolution.js
  * @author ThemePunch
 *********************************************/

@@ -371,6 +371,58 @@
 						Life Tracker End
 				*************************************-->
 				<!--************************************
+						Portfolio Start
+				*************************************-->
+				<div id="tg-galleryfilterable" class="tg-galleryfilterable tg-galleryfilterablevtwo">
+					<div class="tg-portfolioitem tg-widthquarter">
+						<figure>
+							<a href="#">
+								<img src="images/portfolio/the_sacreds.jpg" alt="image description">
+								<div class="tg-portfoliohover">
+									<h2><span>Game Development</span></h2>
+									<h3><span>The Sacreds</span></h3>
+								</div>
+							</a>
+						</figure>
+					</div>
+					<div class="tg-portfolioitem tg-widthquarter">
+						<figure>
+							<a href="#">
+								<img src="images/portfolio/brand_identity.jpg" alt="image description">
+								<div class="tg-portfoliohover">
+									<h2><span>Brand Identity</span></h2>
+									<h3><span>Tao Fruit</span></h3>
+								</div>
+							</a>
+						</figure>
+					</div>
+					<div class="tg-portfolioitem tg-widthquarter">
+						<figure>
+							<a href="#">
+								<img src="images/portfolio/7steps.jpg" alt="image description">
+								<div class="tg-portfoliohover">
+									<h2><span>Content Writing</span></h2>
+									<h3><span>Tao Publishing</span></h3>
+								</div>
+							</a>
+						</figure>
+					</div>
+					<div class="tg-portfolioitem tg-widthquarter">
+						<figure>
+								<a href="#">
+									<img src="images/portfolio/tao_intel.jpg" alt="image description">
+									<div class="tg-portfoliohover">
+										<h2><span>Artificial Intelligence</span></h2>
+										<h3><span>Tao Cyber</span></h3>
+									</div>
+								</a>
+						</figure>
+					</div>
+				</div>
+				<!--************************************
+						Portfolio End
+				*************************************-->
+				<!--************************************
 						Digital Product Start
 				*************************************-->
 				<section class="tg-haslayout" data-z-index="1" data-appear-top-offset="600" data-parallax="scroll" data-image-src="../images/parallax/bgparallax-07.jpg">
@@ -468,7 +520,7 @@
 											<input type="hidden" name="name" value="Student Inquiry">
 											<input type="hidden" name="message" value="Please add me to the newsletter!">
 											<input type="text" name="_gotcha" style="display:none" />
-											<input type="hidden" name="_subject" value="Inquiry: Tao Learning" />
+											<input type="hidden" name="_subject" value="Inquiry: Focus Hive" />
 											<input type="hidden" name="_next" value="https://taolearning.org/thanks.html" />
 											<input type="email" name="_replyto" class="form-control" placeholder="Enter your Email">
 											<button type="submit" value="Send"><i class="icon-envelope"></i></button>
@@ -481,7 +533,7 @@
 									<div class="tg-footercolumn tg-widget">
 										<ul>
 											<li><a href="../aboutus.html">About Us</a></li>
-											<li><a href="../aboutus.html">Who We Are</a></li>
+											<li><a href="../mentality">Hive Mentality</a></li>
 											<li><a href="../casestudy/">Case Studies</a></li>
 											<li><a href="../contactus.html">Contact Us</a></li>
 											<li><a href="../comingsoon.html">Privacy Policy</a></li>
@@ -499,99 +551,6 @@
 	<!--************************************
 			Wrapper End
 	*************************************-->
-
-
-
-	
-	<script>
-	var stripe = Stripe('pk_live_sfhhAsZrPL455eqJvQzCxPKj', {
-		betas: ['checkout_beta_3']
-	});
-	
-	var checkoutButton1 = document.getElementById('checkout-button1');
-	checkoutButton1.addEventListener('click', function () {
-		// When the customer clicks on the button, redirect
-		// them to Checkout.
-		stripe.redirectToCheckout({
-		items: [{plan: 'plan_E7PhLd2lVgIHk8', quantity: 1}],
-	
-		// Note that it is not guaranteed your customers will be redirected to this
-		// URL *100%* of the time, it's possible that they could e.g. close the
-		// tab between form submission and the redirect.
-		successUrl: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DenrLy6HMU6x7niYqsAVnFZOUIHrEbdEuqT50uFdRVZUNEhFM0ZHODhIOEZIUTRKRDMyUzZVRTkxTiQlQCN0PWcu',
-		cancelUrl: 'https://taofinances.com/canceled',
-		})
-		.then(function (result) {
-		if (result.error) {
-			// If `redirectToCheckout` fails due to a browser or network
-			// error, display the localized error message to your customer.
-			var displayError1 = document.getElementById('error-message1');
-			displayError1.textContent = result.error.message;
-		}
-		});
-	});
-	</script>
-
-
-
-	<script>
-	var stripe = Stripe('pk_live_sfhhAsZrPL455eqJvQzCxPKj', {
-		betas: ['checkout_beta_3']
-	});
-	
-	var checkoutButton2 = document.getElementById('checkout-button2');
-	checkoutButton2.addEventListener('click', function () {
-		// When the customer clicks on the button, redirect
-		// them to Checkout.
-		stripe.redirectToCheckout({
-		items: [{plan: 'plan_E7PqXvJmOIOtsl', quantity: 1}],
-	
-		// Note that it is not guaranteed your customers will be redirected to this
-		// URL *100%* of the time, it's possible that they could e.g. close the
-		// tab between form submission and the redirect.
-		successUrl: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DenrLy6HMU6x7niYqsAVnFZOUIHrEbdEuqT50uFdRVZUNEhFM0ZHODhIOEZIUTRKRDMyUzZVRTkxTiQlQCN0PWcu',
-		cancelUrl: 'https://taofinances.com/canceled',
-		})
-		.then(function (result) {
-		if (result.error) {
-			// If `redirectToCheckout` fails due to a browser or network
-			// error, display the localized error message to your customer.
-			var displayError2 = document.getElementById('error-message2');
-			displayError2.textContent = result.error.message;
-		}
-		});
-	});
-	</script>
-
-	<script>
-	var stripe = Stripe('pk_live_sfhhAsZrPL455eqJvQzCxPKj', {
-		betas: ['checkout_beta_3']
-	});
-	
-	var checkoutButton3 = document.getElementById('checkout-button3');
-	checkoutButton3.addEventListener('click', function () {
-		// When the customer clicks on the button, redirect
-		// them to Checkout.
-		stripe.redirectToCheckout({
-		items: [{plan: 'plan_E7Psv5SscW4g6x', quantity: 1}],
-	
-		// Note that it is not guaranteed your customers will be redirected to this
-		// URL *100%* of the time, it's possible that they could e.g. close the
-		// tab between form submission and the redirect.
-		successUrl: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DenrLy6HMU6x7niYqsAVnFZOUIHrEbdEuqT50uFdRVZUNEhFM0ZHODhIOEZIUTRKRDMyUzZVRTkxTiQlQCN0PWcu',
-		cancelUrl: 'https://taofinances.com/canceled',
-		})
-		.then(function (result) {
-		if (result.error) {
-			// If `redirectToCheckout` fails due to a browser or network
-			// error, display the localized error message to your customer.
-			var displayErrore = document.getElementById('error-message3');
-			displayError3.textContent = result.error.message;
-		}
-		});
-	});
-	</script>
-
 
 	<script src="../js/vendor/jquery-library.js"></script>
 	<script src="../js/vendor/bootstrap.min.js"></script>
