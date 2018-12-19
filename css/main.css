@@ -4000,6 +4000,29 @@ li.menu-item-has-children:hover > .mega-menu{
 	z-index: 1;
 	position: absolute;
 }
+.tg-tripleimg{position: relative;}
+.tg-tripleimg figure{
+	z-index: 3;
+	width: auto;
+	float: left;
+	margin: 0px 0 70px;
+	overflow: hidden;
+	position: relative;
+}
+.tg-tripleimg figure + figure{
+	top: 0;
+	right: 0;
+	margin: 0;
+	z-index: 2;
+	position: absolute;
+}
+.tg-tripleimg figure + figure + figure{
+	top: 0;
+	right: 0;
+	margin: 0;
+	z-index: 1;
+	position: absolute;
+}
 .tg-postsvtwo .tg-post{
 	border: 0;
 	padding: 0;
@@ -4825,7 +4848,7 @@ li.menu-item-has-children:hover > .mega-menu{
 .tg-ditigalproducts{
 	width: 100%;
 	float: left;
-	text-align: left;
+	text-align: center;
 }
 .tg-ditigalproducts h2{
 	font-size: 54px;
@@ -4841,7 +4864,7 @@ li.menu-item-has-children:hover > .mega-menu{
 	font-weight:400;
 	font-family: 'Lora', Arial, Helvetica, sans-serif;
 }
-.tg-ditigalproducts .tg-service{text-align: left;}
+.tg-ditigalproducts .tg-service{text-align: center;}
 .tg-ditigalproducts .tg-servicesvfour .tg-serviceicon i{float: left;}
 .tg-clientfeedbackslidervthree{padding: 0;}
 .tg-clientfeedbackslidervthree .item{opacity: 0.50;}
