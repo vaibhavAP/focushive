@@ -374,19 +374,50 @@
 			Wrapper End
 	*************************************-->
 <script>
+
 	window.addEventListener('DOMContentLoaded', function() {
+		var stripePlanvar = 'noplan';
+		document.getElementById('personal').addEventListener('click', function(e) {
+			stripePlanvar = 'plan_EFK0AlJuLNe9Aw';  // Personal Subscription
+			handler.open({
+				name: 'Focus Hive',
+				description: 'Personal Subscription',
+				zipCode: false,
+				billingAddress: false,
+				allowRememberMe: false,
+				amount: 8900
+			});
+			e.preventDefault();
+		});
+
+		document.getElementById('business').addEventListener('click', function(e) {
+		stripePlanvar = 'plan_EFJyTyvYM1hnV4', // Business Subscription
+			handler.open({
+				name: 'Focus Hive',
+				description: 'Business Subscription',
+				zipCode: true,
+				billingAddress: true,
+				allowRememberMe: false,
+				amount: 79900
+			});
+			e.preventDefault();
+		});
+
 		var handler = StripeCheckout.configure({
-			key: 'pk_test_Cwv6JfIlv1w1N3eMCxWQC2tF',
+			key: 'pk_live_sfhhAsZrPL455eqJvQzCxPKj',
 			image: '../images/logos/icon.png',
 			locale: 'auto',
 			token: function (token) {
+				var myHeaders = new Headers();
 				console.log(token);
 				fetch('https://focushivepay.azurewebsites.net/api/ClickPay?code=G6tySeuJkZ3aDiV//aFVzwuInPRG7ra4nWIjjsEUZSf80oDEj0OWUA==', {
 					method: 'POST',
-					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
+					headers: myHeaders,
+					mode: 'no-cors',
+					cache: 'default',
 					body: JSON.stringify({token, 
 						stripeDescription: 'Focus Hive Subscription',
-						stripePlan: 'plan_E7EwJxJtUvBRn3', // Personal Subscription
+						stripePlan: stripePlanvar,
 					})
 				}).then( (response) => {
             console.log(response);
@@ -398,24 +429,11 @@
 									showCloseButton: true,
 									focusConfirm: false,
 									confirmButtonText:
-										'<i class="fa fa-address-card"></i> Login',
+										'<a style="color: white" href="https://login.microsoftonline.com/?whr=taolearning.org"><i class="fa fa-address-card"></i> Login</a>',
 									confirmButtonAriaLabel: 'Login',
 								})
 					});
 			}
-		});
-		document.getElementById('personal').addEventListener('click', function(e) {
-		
-			handler.open({
-				type: 'wechat',
-				name: 'Focus Hive',
-				description: 'Personal Subscription',
-				zipCode: true,
-				billingAddress: true,
-				allowRememberMe: false,
-				amount: 8900
-			});
-			e.preventDefault();
 		});
 		// Close Checkout on page navigation
 		window.addEventListener('popstate', function() {
