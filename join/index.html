@@ -24,7 +24,10 @@
 	<link rel="stylesheet" href="../css/color.css">
 	<link rel="stylesheet" href="../css/responsive.css">
 	<script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-	<script src="https://js.stripe.com/v3"></script>
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+	<script src="../js/sweetalert2/dist/sweetalert2.all.min.js"></script>
+	<!-- Include a polyfill for ES6 Promises (optional) for IE11 and UC Browser support -->
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -150,7 +153,7 @@
 														<li><span class="tg-empty"></span></li>
 													</ul>
 												</div>
-												<button class="tg-btn tg-btnblue"  id="checkout-button1"><span>Subscribe</span></button>
+												<button class="tg-btn tg-btnblue"  id="personal"><span>Subscribe</span></button>
 												<div id="error-message1"></div>
 											</div>
 										</div>
@@ -172,7 +175,7 @@
 													</ul>
 												</div>
 												<div>
-												<button class="tg-btn tg-btnblue"  id="checkout-button2"><span>Subscribe</span></button>
+												<button class="tg-btn tg-btnblue"  id="business"><span>Subscribe</span></button>
 												<div id="error-message2"></div>
 												</div>
 											</div>
@@ -370,72 +373,56 @@
 	<!--************************************
 			Wrapper End
 	*************************************-->
-
-
-
-	
-	<script>
-	var stripe = Stripe('pk_live_sfhhAsZrPL455eqJvQzCxPKj', {
-		betas: ['checkout_beta_4']
-	});
-	
-	var checkoutButton1 = document.getElementById('checkout-button1');
-	checkoutButton1.addEventListener('click', function () {
-		// When the customer clicks on the button, redirect
-		// them to Checkout.
-		stripe.redirectToCheckout({
-		items: [{plan: 'plan_EFK0AlJuLNe9Aw', quantity: 1}],
-	
-		// Note that it is not guaranteed your customers will be redirected to this
-		// URL *100%* of the time, it's possible that they could e.g. close the
-		// tab between form submission and the redirect.
-		successUrl: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DenrLy6HMU6x7niYqsAVnFZOUIHrEbdEuqT50uFdRVZUNEhFM0ZHODhIOEZIUTRKRDMyUzZVRTkxTiQlQCN0PWcu',
-		cancelUrl: 'https://taofinances.com/canceled',
-		})
-		.then(function (result) {
-		if (result.error) {
-			// If `redirectToCheckout` fails due to a browser or network
-			// error, display the localized error message to your customer.
-			var displayError1 = document.getElementById('error-message1');
-			displayError1.textContent = result.error.message;
-		}
+<script>
+	window.addEventListener('DOMContentLoaded', function() {
+		var handler = StripeCheckout.configure({
+			key: 'pk_test_Cwv6JfIlv1w1N3eMCxWQC2tF',
+			image: '../images/logos/icon.png',
+			locale: 'auto',
+			token: function (token) {
+				console.log(token);
+				fetch('https://focushivepay.azurewebsites.net/api/ClickPay?code=G6tySeuJkZ3aDiV//aFVzwuInPRG7ra4nWIjjsEUZSf80oDEj0OWUA==', {
+					method: 'POST',
+					headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'},
+					body: JSON.stringify({token, 
+						stripeDescription: 'Focus Hive Subscription',
+						stripePlan: 'plan_E7EwJxJtUvBRn3', // Personal Subscription
+					})
+				}).then( (response) => {
+            console.log(response);
+            Swal({
+									title: '<strong>Subscription Started',
+									type: 'success',
+									html:
+										'Check your email for Login details.<br>Account available within 5 minutes.',
+									showCloseButton: true,
+									focusConfirm: false,
+									confirmButtonText:
+										'<i class="fa fa-address-card"></i> Login',
+									confirmButtonAriaLabel: 'Login',
+								})
+					});
+			}
+		});
+		document.getElementById('personal').addEventListener('click', function(e) {
+		
+			handler.open({
+				type: 'wechat',
+				name: 'Focus Hive',
+				description: 'Personal Subscription',
+				zipCode: true,
+				billingAddress: true,
+				allowRememberMe: false,
+				amount: 8900
+			});
+			e.preventDefault();
+		});
+		// Close Checkout on page navigation
+		window.addEventListener('popstate', function() {
+			handler.close();
 		});
 	});
-	</script>
-
-
-
-	<script>
-	var stripe = Stripe('pk_live_sfhhAsZrPL455eqJvQzCxPKj', {
-		betas: ['checkout_beta_4']
-	});
-	
-	var checkoutButton2 = document.getElementById('checkout-button2');
-	checkoutButton2.addEventListener('click', function () {
-		// When the customer clicks on the button, redirect
-		// them to Checkout.
-		stripe.redirectToCheckout({
-		items: [{plan: 'plan_EFJyTyvYM1hnV4', quantity: 1}],
-	
-		// Note that it is not guaranteed your customers will be redirected to this
-		// URL *100%* of the time, it's possible that they could e.g. close the
-		// tab between form submission and the redirect.
-		successUrl: 'https://forms.office.com/Pages/ResponsePage.aspx?id=DenrLy6HMU6x7niYqsAVnFZOUIHrEbdEuqT50uFdRVZUNEhFM0ZHODhIOEZIUTRKRDMyUzZVRTkxTiQlQCN0PWcu',
-		cancelUrl: 'https://taofinances.com/canceled',
-		})
-		.then(function (result) {
-		if (result.error) {
-			// If `redirectToCheckout` fails due to a browser or network
-			// error, display the localized error message to your customer.
-			var displayError2 = document.getElementById('error-message2');
-			displayError2.textContent = result.error.message;
-		}
-		});
-	});
-	</script>
-
-	
-
+</script>
 
 	<script src="../js/vendor/jquery-library.js"></script>
 	<script src="../js/vendor/bootstrap.min.js"></script>
