@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Focus Hive | Join</title>
+	<title>Focus Hive Test | Join</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -154,6 +154,7 @@
 													</ul>
 												</div>
 												<button class="tg-btn tg-btnblue"  id="personal"><span>Subscribe</span></button>
+												<button class="tg-btn tg-btnblue"  id="personalwe"><span>SubscribeWe</span></button>
 												<div id="error-message1"></div>
 											</div>
 										</div>
@@ -378,9 +379,8 @@
 	window.addEventListener('DOMContentLoaded', function() {
 		var stripePlanvar = 'noplan';
 		document.getElementById('personal').addEventListener('click', function(e) {
-			stripePlanvar = 'plan_EFK0AlJuLNe9Aw';  // Personal Subscription
+			stripePlanvar = 'plan_E7EwJxJtUvBRn3';  // Personal Subscription
 			handler.open({
-				type: 'wechat',
 				name: 'Focus Hive',
 				description: 'Personal Subscription',
 				zipCode: false,
@@ -390,6 +390,28 @@
 			});
 			e.preventDefault();
 		});
+
+		
+		document.getElementById('personalwe').addEventListener('click', function(e) {
+			stripePlanvar = 'plan_E7EwJxJtUvBRn3';  // Personal Subscription
+
+		
+			handler.open({
+				name: 'Focus Hive',
+				type: 'wechat',
+				description: 'Personal Subscription',
+				zipCode: false,
+				billingAddress: false,
+				allowRememberMe: false,
+				amount: 8900
+			}).then(function(result) {
+			// handle result.error or result.source
+			});
+			
+			e.preventDefault();
+		});
+
+		
 
 		document.getElementById('business').addEventListener('click', function(e) {
 		stripePlanvar = 'plan_EFJyTyvYM1hnV4', // Business Subscription
@@ -405,7 +427,7 @@
 		});
 
 		var handler = StripeCheckout.configure({
-			key: 'pk_live_sfhhAsZrPL455eqJvQzCxPKj',
+			key: 'pk_test_Cwv6JfIlv1w1N3eMCxWQC2tF',
 			image: '../images/logos/icon.png',
 			locale: 'auto',
 			token: function (token) {
