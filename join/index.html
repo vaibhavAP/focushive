@@ -397,6 +397,7 @@
 			 var stripe = Stripe('pk_test_Cwv6JfIlv1w1N3eMCxWQC2tF', {
 					betas: ['checkout_beta_4']
 				});
+			var myHeaders = new Headers();
 			stripePlanvar = 'plan_E7EwJxJtUvBRn3';  // Personal Subscription
 			stripe.createSource({
 				type: 'wechat',
