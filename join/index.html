@@ -25,7 +25,6 @@
 	<link rel="stylesheet" href="../css/responsive.css">
 	<script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 	<script src="https://checkout.stripe.com/checkout.js"></script>
-	<script src="https://js.stripe.com/v3/"></script>
 	<script src="../js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 	<!-- Include a polyfill for ES6 Promises (optional) for IE11 and UC Browser support -->
 	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
@@ -155,7 +154,6 @@
 													</ul>
 												</div>
 												<button class="tg-btn tg-btnblue"  id="personal"><span>Subscribe</span></button>
-												<button class="tg-btn tg-btnblue"  id="personalwe"><span>Subscribewe</span></button>
 												<div id="error-message1"></div>
 											</div>
 										</div>
@@ -390,24 +388,6 @@
 				allowRememberMe: false,
 				amount: 8900
 			});
-			e.preventDefault();
-		});
-
-		document.getElementById('personalwe').addEventListener('click', function(e) {
-			 var stripe = Stripe('pk_test_Cwv6JfIlv1w1N3eMCxWQC2tF', {
-					betas: ['checkout_beta_4']
-				});
-			var myHeaders = new Headers();
-			stripePlanvar = 'plan_E7EwJxJtUvBRn3';  // Personal Subscription
-			stripe.createSource({
-				type: 'wechat',
-				amount: 1099,
-				currency: 'usd',
-				}).then(function(result) {
-				// handle result.error or result.source
-				});
-
-			
 			e.preventDefault();
 		});
 
