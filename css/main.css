@@ -4287,7 +4287,7 @@ li.menu-item-has-children:hover > .mega-menu{
 	-o-transform: translateY(0);
 	transform: translateY(0);
 }
-.tg-bgaboutus{background: #000 url('../images/parallax/aboutus.jpg') no-repeat 100% 0px;}
+.tg-bgaboutus{background: #000 url('../images/parallax/mindmap2.jpg') no-repeat 100% 0px;}
 .tg-aboutus{
 	width: 100%;
 	float: left;
@@ -4475,7 +4475,7 @@ li.menu-item-has-children:hover > .mega-menu{
 .tg-whitecontent .tg-whatwedo .tg-title h3 span{color: #fff;}
 .tg-whitecontent .tg-sectiontitle:before,
 .tg-whitecontent .tg-list.tg-liststyledash li:before{background: #fff;}
-.tg-bgaboutusvtwo{background: url('../images/showcase.jpg') no-repeat 100% 80px;}
+.tg-bgaboutusvtwo{background: url('../images/mindmap.jpg') no-repeat 100% 80px;}
 .tg-themefeaturesvthree{
 	padding: 0;
 	margin: -35px 0;
