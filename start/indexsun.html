@@ -396,27 +396,21 @@
 			e.preventDefault();
 		});
 
-		
-		document.getElementById('personalwe').addEventListener('click', function(e) {
-			stripePlanvar = 'plan_EfHHfQAuO9hXSc';  // Personal Subscription
-
-		
-			handler.open({
-				name: 'Focus Hive',
-				type: 'wechat',
-				description: 'Personal Subscription',
-				zipCode: false,
-				billingAddress: false,
-				allowRememberMe: false,
-				amount: 8900
-			}).then(function(result) {
-			// handle result.error or result.source
-			});
-			
-			e.preventDefault();
-		});
-
-		
+		// document.getElementById('personalwe').addEventListener('click', function(e) {
+		// 	stripePlanvar = 'plan_EfHHfQAuO9hXSc';  // Personal Subscription
+		// 	handler.open({
+		// 		name: 'Focus Hive',
+		// 		type: 'wechat',
+		// 		description: 'Personal Subscription',
+		// 		zipCode: false,
+		// 		billingAddress: false,
+		// 		allowRememberMe: false,
+		// 		amount: 8900
+		// 	}).then(function(result) {
+		// 	// handle result.error or result.source
+		// 	});
+		// 	e.preventDefault();
+		// });		
 
 		document.getElementById('business').addEventListener('click', function(e) {
 		stripePlanvar = 'plan_EFJyTyvYM1hnV4', // Business Subscription
