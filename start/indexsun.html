@@ -384,7 +384,7 @@
 	window.addEventListener('DOMContentLoaded', function() {
 		var stripePlanvar = 'noplan';
 		document.getElementById('personal').addEventListener('click', function(e) {
-			stripePlanvar = 'plan_EfHHfQAuO9hXSc';  // Personal Subscription
+			stripePlanvar = 'plan_G7WLE1ULOHcRpk';  // Personal Subscription
 			handler.open({
 				name: 'Focus Hive',
 				description: 'Personal Subscription',
@@ -413,7 +413,7 @@
 		// });		
 
 		document.getElementById('business').addEventListener('click', function(e) {
-		stripePlanvar = 'plan_EFJyTyvYM1hnV4', // Business Subscription
+		stripePlanvar = 'plan_G7WMeSOkKhAt5W', // Business Subscription
 			handler.open({
 				name: 'Focus Hive',
 				description: 'Business Subscription',
@@ -426,7 +426,7 @@
 		});
 
 		var handler = StripeCheckout.configure({
-			key: 'pk_test_M4lUHJesnz3f9gWbUJzdncMV',
+			key: 'pk_live_46IxEfYaxI6M6iCJDLnPOjZq00TJGFzfVu',
 			image: 'images/logos/icon.png',
 			locale: 'auto',
 			token: function (token) {
