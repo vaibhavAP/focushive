@@ -177,7 +177,7 @@
 											</ul>
 										</div>
 										<div>
-										<button class="tg-btn tg-btnblue"  id="business"><span>Subscribe</span></button>
+										<button class="tg-btn tg-btnblue"  id="manager"><span>Subscribe</span></button>
 										<div id="error-message2"></div>
 										</div>
 									</div>
@@ -187,20 +187,20 @@
 										<div class="tg-planhead">
 											<h3><a href="solution/enterprise.html">Executive</a></h3>
 											<h4>Empower Your Voice</h4>
-											<br>
+											<h5><sup>$</sup> 2450 <sub>/ mo.</sub></h5>
 										</div>
 										<div class="tg-planbody">
 											<ul>
-												<li>Up to 500K Users</li>
-												<li>White Label Hives</li>
-												<li>Personalized Class Creation</li>
-												<li>Internship Development Program</li>
-												<li>Streamline HR with AI</li>
-												<li><span class="tg-empty"></span></li>
+												<li>Power Coaching</li>
+												<li>Agile Automation</li>
+												<li>Artificial Intelligence Management</li>
+												<li>ERP Leadership</li>
+												<li>Structural Organization</li>
+												<li>Enterprise Training</li>
 											</ul>
 										</div>
 										<div>
-											<a class="tg-btn tg-btnblue" href="support.html"><span>Contact</span></a>
+											<button class="tg-btn tg-btnblue"  id="executive"><span>Subscribe</span></button>
 										</div>
 									</div>
 								</div>
@@ -394,33 +394,30 @@
 				amount: 8900
 			});
 			e.preventDefault();
-		});
+		});	
 
-		// document.getElementById('personalwe').addEventListener('click', function(e) {
-		// 	stripePlanvar = 'plan_EfHHfQAuO9hXSc';  // Personal Subscription
-		// 	handler.open({
-		// 		name: 'Focus Hive',
-		// 		type: 'wechat',
-		// 		description: 'Personal Subscription',
-		// 		zipCode: false,
-		// 		billingAddress: false,
-		// 		allowRememberMe: false,
-		// 		amount: 8900
-		// 	}).then(function(result) {
-		// 	// handle result.error or result.source
-		// 	});
-		// 	e.preventDefault();
-		// });		
-
-		document.getElementById('business').addEventListener('click', function(e) {
-		stripePlanvar = 'plan_G7WMeSOkKhAt5W', // Business Subscription
+		document.getElementById('manager').addEventListener('click', function(e) {
+		stripePlanvar = 'plan_G7WMeSOkKhAt5W', // Manager Subscription
 			handler.open({
 				name: 'Focus Hive',
-				description: 'Business Subscription',
+				description: 'Manager Subscription',
 				zipCode: true,
 				billingAddress: true,
 				allowRememberMe: false,
 				amount: 79900
+			});
+			e.preventDefault();
+		});
+
+		document.getElementById('executive').addEventListener('click', function(e) {
+		stripePlanvar = 'plan_G7WceErcP5deBh', // Manager Subscription
+			handler.open({
+				name: 'Focus Hive',
+				description: 'Executive Subscription',
+				zipCode: true,
+				billingAddress: true,
+				allowRememberMe: false,
+				amount: 245000
 			});
 			e.preventDefault();
 		});

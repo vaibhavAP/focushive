@@ -156,7 +156,7 @@
 														<li><span class="tg-empty"></span></li>
 													</ul>
 												</div>
-												<button class="tg-btn tg-btnblue"  id="personal"><span>Subscribe</span></button>
+												<button class="tg-btn tg-btnblue"  id="startup"><span>Subscribe</span></button>
 												<div id="error-message1"></div>
 											</div>
 										</div>
@@ -388,35 +388,48 @@
 
 	window.addEventListener('DOMContentLoaded', function() {
 		var stripePlanvar = 'noplan';
-		document.getElementById('personal').addEventListener('click', function(e) {
-			stripePlanvar = 'plan_EePrV9u87LjUPL';  // Personal Subscription
+		document.getElementById('startup').addEventListener('click', function(e) {
+			stripePlanvar = 'plan_G7WSs4oB6lnCNA';  // Startup Subscription
 			handler.open({
 				type: 'wechat',
 				name: 'Focus Hive',
-				description: 'Personal Subscription',
+				description: 'Startup Subscription',
 				zipCode: false,
 				billingAddress: false,
 				allowRememberMe: false,
-				amount: 8900
+				amount: 300000
 			});
 			e.preventDefault();
 		});
 
 		document.getElementById('business').addEventListener('click', function(e) {
-		stripePlanvar = 'plan_EePjpved9m3YkU', // Business Subscription
+		stripePlanvar = 'plan_G7Wa7hMV1Raf7S', // Business Subscription
 			handler.open({
 				name: 'Focus Hive',
 				description: 'Business Subscription',
 				zipCode: true,
 				billingAddress: true,
 				allowRememberMe: false,
-				amount: 79900
+				amount: 1200000
+			});
+			e.preventDefault();
+		});
+
+		document.getElementById('enterprise').addEventListener('click', function(e) {
+		stripePlanvar = 'plan_G7WZkex9ryy2sK', // Business Subscription
+			handler.open({
+				name: 'Focus Hive',
+				description: 'Enterprise Subscription',
+				zipCode: true,
+				billingAddress: true,
+				allowRememberMe: false,
+				amount: 6000000
 			});
 			e.preventDefault();
 		});
 
 		var handler = StripeCheckout.configure({
-			key: 'pk_live_AT18iGVWTZZk5wOtQqlfhOm0',
+			key: 'pk_live_46IxEfYaxI6M6iCJDLnPOjZq00TJGFzfVu',
 			image: 'images/logos/icon.png',
 			locale: 'auto',
 			token: function (token) {
