@@ -116,7 +116,7 @@ a:active,
 .tg-navtabs li:hover a:before,
 .tg-tabcontent .tg-skillbar,
 .tg-blogpostvseven .tg-postcontent .tg-posttitle:after,
-.tg-btn:hover:before{ background:#ea205a; }
+.tg-btn:hover:before{ background:#ea205a; color: white !important; }
 /*=============================================
 			Zain's Custom Code
 =============================================*/
@@ -139,7 +139,9 @@ a:active,
 .violet-hive a:hover:before, li.violet-hive a:before {
 	background: violet !important;
 }
-
+.tg-headercontent a.tg-btnpink {
+	margin-top: 10px !important;
+}	
 
 /*=============================================
 			Theme Border Color

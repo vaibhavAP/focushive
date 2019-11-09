@@ -353,7 +353,7 @@ address { font-style: italic; }
 }
 .tg-btn:hover:before{height:100%;}
 .tg-btn-lg { width: 100%;}
-.tg-btn.tg-btnpink:hover{color: #fff;}
+.tg-btn.tg-btnpink:hover{color: #fff !important;}
 .tg-socialicons {
 	overflow: hidden;
 	list-style: none;
@@ -8600,3 +8600,4 @@ Bottom to Top
 	transition: all 0.3s 1s ease-out;
 }
 }
+
