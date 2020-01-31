@@ -4,7 +4,7 @@
 <!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->	<html class="no-js" lang="zxx"> <!--<![endif]-->
 <head>
-	<!-- <base href="https://thefocushive.com/"> -->
+	<base href="https://thefocushive.com/">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Focus Hive | Support</title>
@@ -40,6 +40,7 @@
 	<link rel="stylesheet" href="css/color.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<script src="js/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<!--[if lt IE 8]>
@@ -215,7 +216,7 @@
 												<h3><span>Let’s work together</span>Start your Project</h3>
 											</div>
 										
-											<form method="POST" class="tg-formtheme tg-formstartproject" enctype="application/json" action="https://prod-01.eastus.logic.azure.com:443/workflows/8a428578d58348b6bb79faadd105be3c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNjnAoDbYO6HcBStQnAxY41C72UuqhMy18_KjvpAXr8" >
+											<form method="POST" id="contactus" class="tg-formtheme tg-formstartproject" enctype="application/json" action="https://prod-01.eastus.logic.azure.com:443/workflows/8a428578d58348b6bb79faadd105be3c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNjnAoDbYO6HcBStQnAxY41C72UuqhMy18_KjvpAXr8" >
 													
 													<input type="text" name="_gotcha" style="display:none">
 													<input type="hidden" name="_subject" value="Inquiry: Focus Hive">
@@ -263,15 +264,21 @@
 														<input type="text" id="topic" name="topic" class="form-control" placeholder="Topic">
 													</div>
 													<div class="form-group">
-														<textarea name="message" placeholder="Message"></textarea>
+														<textarea name="information" placeholder="Message"></textarea>
 													</div>
 													<div class="form-group">
-														<button class="tg-btn" type="submit" value="Send"><span>send message</span></button>
+														<button class="tg-btn" type="submit"><span>send message</span></button>
 													</div>
 												</fieldset>
+												<div class="g-recaptcha"
+													data-sitekey="6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO"
+													data-callback="onSubmit"
+													data-size="invisible">
+												</div>
 												<input type="hidden" name="test" value="off">
-												<input type="hidden" name="owner" value="3d59947d-4991-e911-a95b-000d3a34ec54">
+												<input type="hidden" name="owner" value="20bfadb9-4991-e911-a95b-000d3a34ec54">
 												<input type="hidden" name="website" value="https://thefocushive.com">
+												<input type="text" name="_gotcha" style="display:none" />
 											</form>
 										</div>
 									</div>
@@ -485,5 +492,57 @@
 	<script src="js/appear.js"></script>
 	<script src="js/gmap3.js"></script>
 	<script src="js/main.js"></script>
+
+	<script src="js/jquery.validate.js"></script>
+	<script>
+	$("#contactus").validate();
+	</script>
+	<script>
+
+		$("#contactus").submit(function(event){
+		if (!$("#contactus").validate().form()) {
+		return false; //doesn't validate
+		}else
+		{
+		event.preventDefault(); //prevent default action 
+		var post_url = $(this).attr("action"); //get form action url
+		var request_method = $(this).attr("method"); //get form GET/POST method
+		var content_type = $(this).attr("enctype"); //get form GET/POST method
+		var form_data = $(this).serialize(); //Encode form elements for submission
+		
+		$.ajax({
+				type: $(this).attr('method'),
+				url: $(this).attr('action'),
+				data: $(this).serialize(),
+				success: function (data) {
+					$("#register")[0].reset();
+					$("input:checkbox").attr('checked', false);
+					Swal({
+					title: '<strong>Submission Successful</strong>',
+					type: 'success',
+					html:
+						'We will reply as soon as we can. Thank you.',
+					showCloseButton: true,
+					focusConfirm: false,
+					confirmButtonText:
+						'<a style="color: white" href="start.html"><i class="fa fa-address-card"></i> OK</a>',
+					confirmButtonAriaLabel: 'OK',
+				});
+					console.log('Submission was successful.');
+					console.log(data);
+					
+				},
+				error: function (data) {
+					console.log('An error occurred.');
+					console.log(data);
+				},
+			}).then(function(response){ //
+			$("#server-results").html(response);
+		}); //form is validated do your work
+		}	   
+	});
+	</script>
+
+
 </body>
 </html>
