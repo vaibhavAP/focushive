@@ -6018,7 +6018,8 @@ li.menu-item-has-children:hover > .mega-menu{
 	width:50%;
 	padding:0 10px;
 }
-.tg-formstartproject .form-group:nth-child(5){width:100%;}
+.tg-formstartproject .form-group:nth-child(7){width:100%;}
+.tg-formstartproject .form-group:nth-child(8){width:100%;}
 .tg-formstartproject .form-group:last-child{margin:0;}
 .tg-formstartproject .form-group input{border-radius:0;}
 .tg-formstartproject .form-group textarea{
