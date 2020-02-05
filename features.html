@@ -269,11 +269,11 @@
 																<li>-  excellence is reserved for those who learn many skills</li>
 																<li>-  all ages can learn, grow, and become better versions of the self</li>
 																<li>-  knowledge creates power and responsibility.</li>
-																<li>-  teaching is one of the highest forms of wisdom</li>
+																<li><a class="tg-btn" data-toggle="modal" data-target="#modal1" href="#"><span>Watch Training Video</span></a></li>
 															</ul>
 														</div>
 														<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-															<figure><img src="images/services/grant_accelerator.jpg" alt="image description"></figure>
+															<figure><a data-toggle="modal" data-target="#modal1" href="#"><img src="images/services/grant_accelerator.jpg" alt="image description"></a></figure>
 														</div>
 													</div>
 												</div>
@@ -573,6 +573,39 @@
 	<!--************************************
 			Wrapper End
 	*************************************-->
+
+
+	<!--Modal: Name-->
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<!--Content-->
+			<div class="modal-content">
+				<!--Body-->
+				<div class="modal-body mb-0 p-0">
+					<div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/AhgRsHCxLAw"
+						allowfullscreen></iframe>
+					</div>
+				</div>
+				<!--Footer-->
+				<div class="modal-footer justify-content-center">
+					<div class="pull-right">
+						<ul class="tg-socialicons">
+							<li><span class="mr-4">Share with your team: </span></li>
+							
+							<li class="tg-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fthefocushive.com&amp;title=Cloud%20Productivity%20Platform%20for%20Teams&amp;summary=Cloud%20Productivity%20Platform%20for%20Teams&amp;source=http%3A%2F%2Fthefocushive.com"><i class="icon-linkedin22"></i></a></li>
+							<li class="tg-twitter"><a href="https://twitter.com/intent/tweet/?text=Cloud%20Productivity%20Platform%20for%20Teams&amp;url=http%3A%2F%2Fthefocushive.com"><i class="icon-twitter-1"></i></a></li>
+							<li class="tg-facebook"><a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fthefocushive.com"><i class="icon-facebook-1"></i></a></li>
+							<li><button type="button" class="btn  tg-btnblue" data-dismiss="modal">Close</button></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--/.Content-->
+		</div>
+	</div>
+	<!--Modal: Name-->
+
 	<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='MMERGE6';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='text';fnames[8]='MMERGE8';ftypes[8]='text';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='text';fnames[12]='MMERGE12';ftypes[12]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 	<!--End mc_embed_signup-->
 	<script src="js/vendor/jquery-library.js"></script>
@@ -594,5 +627,11 @@
 	<script src="js/appear.js"></script>
 	<script src="js/gmap3.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+		$('#modal1').on('hidden.bs.modal', function (e) {
+			// do something...
+			$('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
+		});
+	</script>
 </body>
 </html>
