@@ -135,39 +135,39 @@ function resetForm(){
 
 // this function handles success if form is valid
 function showSuccess() {
-    var form_data = new FormData();
-    document.querySelectorAll('#contactus input[name],select[name],textbox[name]').forEach(input => {
-        form_data.append(input.name, input.value);
-    })
-
     grecaptcha.ready(function () {
         grecaptcha.execute("6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO").then(function (token) {
-            form_data.append('token', token);
-            fetch('https://prod-01.eastus.logic.azure.com:443/workflows/8a428578d58348b6bb79faadd105be3c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNjnAoDbYO6HcBStQnAxY41C72UuqhMy18_KjvpAXr8', {
-                method: 'post',
-                body: form_data
-            }).then(res => {
-                if(res.status === 200){
+            document.querySelector('input[name=token]').value = token;
+            let a = $('form#contactus');
+            $.ajax({
+                type: a.attr('method'),
+                url: a.attr('action'),
+                data: a.serialize(),
+                success: function (data, textStatus, xhr) {
+                    console.log(xhr.status)
+                    if (xhr.status === 200) {
+                        swal.fire({
+                            title: "Thank You!",
+                            type: "success",
+                            confirmButtonText: 'Ok'
+                        });
+                        resetForm();
+                    } else {
+                        swal.fire({
+                            title: "Some Error Occurred",
+                            type: "error",
+                            confirmButtonText: 'Ok'
+                        });
+                    }
+                },
+                error: function (data) {
                     swal.fire({
-                        title: "Thank You!",
-                        type: "success",
-                        confirmButtonText: 'Ok'
-                    });
-                    resetForm();
-                } else{
-                    swal.fire({
-                        title: "Your submission failed. Please try again",
+                        title: "An unexpected Error Occurred",
                         type: "error",
                         confirmButtonText: 'Ok'
-                    });
-                }
-            }).catch(err => {
-                swal.fire({
-                    title: "An unexpected Error Occurred",
-                    type: "error",
-                    confirmButtonText: 'Ok'
-                })
-            });
+                    })
+                },
+            })
         });
     });
 }
