@@ -123,38 +123,57 @@ function addError(formGroup, error) {
     }
 }
 
+//function to reset the form
+function resetForm(){
+    document.querySelectorAll('div.form-group.has-success').forEach(formGroup => {
+        formGroup.classList.remove('has-success');
+    })
+    document.querySelectorAll('#contactus input.form-control, select.form-control, textarea').forEach(input => {
+        input.value = '';
+    })
+}
 
 // this function handles success if form is valid
 function showSuccess() {
-    if (grecaptcha.getResponse() == "") {
-        swal.fire({
-            title: "Recaptcha Error",
-            text: "Please ensure recaptcha is checked",
-            type: "error",
-            confirmButtonText: "Ok",
-        });
-    } else {
-        var form_data = new FormData();
-        document.querySelectorAll('#contactus input[name],select[name],textbox[name]').forEach(input => {
-            form_data.append(input.name, input.value);
-        })
-        console.log(form_data);
-        fetch('https://prod-01.eastus.logic.azure.com:443/workflows/8a428578d58348b6bb79faadd105be3c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNjnAoDbYO6HcBStQnAxY41C72UuqhMy18_KjvpAXr8', {
-            method: 'post',
-            body: form_data
-        }).then(res => {
-            console.log(res)
-            swal.fire({
-                title: "Good job!",
-                type: "success",
-                confirmButtonText: 'Ok'
+    var form_data = new FormData();
+    document.querySelectorAll('#contactus input[name],select[name],textbox[name]').forEach(input => {
+        form_data.append(input.name, input.value);
+    })
+
+    grecaptcha.ready(function () {
+        grecaptcha.execute("6LeYMbcZAAAAAGW_wktwCx5gZe1qDnkLFNNij2GI").then(function (token) {
+            form_data.append('token', token);
+            fetch('https://prod-01.eastus.logic.azure.com:443/workflows/8a428578d58348b6bb79faadd105be3c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNjnAoDbYO6HcBStQnAxY41C72UuqhMy18_KjvpAXr8', {
+                method: 'post',
+                body: form_data
+            }).then(res => {
+                if(res.status === 200){
+                    swal.fire({
+                        title: "Thank You!",
+                        type: "success",
+                        confirmButtonText: 'Ok'
+                    });
+                    resetForm();
+                } else if(false){  //condition to be used when response from server is returned
+                    swal.fire({
+                        title: "You are Suspicious User!",
+                        type: "warning",
+                        confirmButtonText: 'Ok'
+                    });
+                } else{
+                    swal.fire({
+                        title: "Some Error Occurred",
+                        type: "error",
+                        confirmButtonText: 'Ok'
+                    });
+                }
+            }).catch(err => {
+                swal.fire({
+                    title: "An unexpected Error Occurred",
+                    type: "error",
+                    confirmButtonText: 'Ok'
+                })
             });
-        }).catch(err => {
-            swal.fire({
-                title: "An unexpected Error Occurred",
-                type: "error",
-                confirmButtonText: 'Ok'
-            })
         });
-    }
+    });
 }
