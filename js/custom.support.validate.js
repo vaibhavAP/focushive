@@ -141,7 +141,7 @@ function showSuccess() {
     })
 
     grecaptcha.ready(function () {
-        grecaptcha.execute("6LeYMbcZAAAAAGW_wktwCx5gZe1qDnkLFNNij2GI").then(function (token) {
+        grecaptcha.execute("6LcHIYcUAAAAAPnqH0iBwnDeFma0mWAMJKJHAoEO").then(function (token) {
             form_data.append('token', token);
             fetch('https://prod-01.eastus.logic.azure.com:443/workflows/8a428578d58348b6bb79faadd105be3c/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cNjnAoDbYO6HcBStQnAxY41C72UuqhMy18_KjvpAXr8', {
                 method: 'post',
@@ -154,9 +154,9 @@ function showSuccess() {
                         confirmButtonText: 'Ok'
                     });
                     resetForm();
-                } else if(false){  //condition to be used when response from server is returned
+                } else if(false){  //condition to be filled according to the returned response from server for suspicious user
                     swal.fire({
-                        title: "You are Suspicious User!",
+                        title: "Your submission failed. Please try again",
                         type: "warning",
                         confirmButtonText: 'Ok'
                     });
