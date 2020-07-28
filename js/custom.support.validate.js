@@ -154,15 +154,9 @@ function showSuccess() {
                         confirmButtonText: 'Ok'
                     });
                     resetForm();
-                } else if(false){  //condition to be filled according to the returned response from server for unknown user
-                    swal.fire({
-                        title: "Your submission failed. Please try again",
-                        type: "warning",
-                        confirmButtonText: 'Ok'
-                    });
                 } else{
                     swal.fire({
-                        title: "Some Error Occurred",
+                        title: "Your submission failed. Please try again",
                         type: "error",
                         confirmButtonText: 'Ok'
                     });
