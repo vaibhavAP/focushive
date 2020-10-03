@@ -57,4 +57,3 @@ To contribute to the project, fix the <a href="https://github.com/TaoFruit/focus
 ## License
 
 
-# focushive
