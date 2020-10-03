@@ -32,7 +32,7 @@ Languages/Technologies used in the project:
 
 2. Clone the forked repo locally:
     ```sh
-    $ git clone {your_forked_repo_url}
+    $ git clone {your_forked_repo_url }
     $ cd {folder_name}
     ```
 3. If using <b>VS Code</b> project can be opened directly using command line:
